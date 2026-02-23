@@ -3,7 +3,8 @@ import fs from 'node:fs';
 const TRAINEE_DATA_FILE_PATH = './data/trainees.json';
 const COURSE_DATA_FILE_PATH = './data/courses.json';
 
-// ======== TRAINEE DATA ========
+
+// trainee date
 export function loadTraineeData() {
   if (!fs.existsSync(TRAINEE_DATA_FILE_PATH)) return [];
   
@@ -24,7 +25,8 @@ export function saveTraineeData(data) {
   }
 }
 
-// ======== COURSE DATA ========
+
+// course date
 export function loadCourseData() {
   if (!fs.existsSync(COURSE_DATA_FILE_PATH)) return [];
   

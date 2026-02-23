@@ -4,7 +4,7 @@ function generateId() {
   return Math.floor(Math.random() * 100000);
 }
 
-// ============ ADD ============
+// add
 function addTrainee(args) {
   const [firstName, lastName] = args;
 
@@ -27,7 +27,8 @@ function addTrainee(args) {
   console.log('Trainee added successfully:', newTrainee);
 }
 
-// ============ UPDATE ============
+
+// update
 function updateTrainee(args) {
   const [id, newFirstName, newLastName] = args;
 
@@ -52,7 +53,8 @@ function updateTrainee(args) {
   console.log('Trainee updated successfully.');
 }
 
-// ============ DELETE ============
+
+// delete
 function deleteTrainee(args) {
   const [id] = args;
 
@@ -61,12 +63,14 @@ function deleteTrainee(args) {
     return;
   }
 
-  // Remove trainee from trainee list
+
+  // remove trainee from trainee list
   const trainees = loadTraineeData();
   const updatedTrainees = trainees.filter(t => t.id != id);
   saveTraineeData(updatedTrainees);
 
-  // Remove trainee from all courses
+
+  // remove trainee from all courses
   const courses = loadCourseData();
   courses.forEach(course => {
     course.participants = course.participants.filter(pid => pid != id);
@@ -76,7 +80,8 @@ function deleteTrainee(args) {
   console.log('Trainee deleted successfully and removed from all courses.');
 }
 
-// ============ GET ONE ============
+
+// get one
 function fetchTrainee(args) {
   const [id] = args;
 
@@ -91,13 +96,15 @@ function fetchTrainee(args) {
   console.log(trainee);
 }
 
-// ============ GET ALL ============
+
+// get all
 function fetchAllTrainees() {
   const trainees = loadTraineeData();
   console.log(trainees);
 }
 
-// ============ HANDLE ============
+
+// handel
 export function handleTraineeCommand(subcommand, args) {
   switch (subcommand) {
     case 'ADD':
