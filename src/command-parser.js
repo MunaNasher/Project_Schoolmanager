@@ -1,3 +1,16 @@
 export function parseCommand(userInput) {
-  // TODO: Implement the logic to parse the user input and return an object with the command, subcommand, and arguments
+  if (!userInput) return { command: undefined, subcommand: undefined, args: [] };
+
+  const regex = /[^\s"]+|"([^"]*)"/g;
+  const parts = [];
+  let match;
+  while ((match = regex.exec(userInput)) !== null) {
+    parts.push(match[1] ? match[1] : match[0]);
+  }
+
+  return {
+    command: parts[0] || undefined,
+    subcommand: parts[1] || undefined,
+    args: parts.slice(2)
+  };
 }
