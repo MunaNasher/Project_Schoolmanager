@@ -27,6 +27,7 @@ function addTrainee(args) {
   console.log('Trainee added successfully:', newTrainee);
 }
 
+
 // update
 function updateTrainee(args) {
   const [id, newFirstName, newLastName] = args;
@@ -52,6 +53,7 @@ function updateTrainee(args) {
   console.log('Trainee updated successfully.');
 }
 
+
 // delete
 function deleteTrainee(args) {
   const [id] = args;
@@ -61,10 +63,12 @@ function deleteTrainee(args) {
     return;
   }
 
+
   // remove trainee from trainee list
   const trainees = loadTraineeData();
   const updatedTrainees = trainees.filter(t => t.id != id);
   saveTraineeData(updatedTrainees);
+
 
   // remove trainee from all courses
   const courses = loadCourseData();
@@ -75,6 +79,7 @@ function deleteTrainee(args) {
 
   console.log('Trainee deleted successfully and removed from all courses.');
 }
+
 
 // get one
 function fetchTrainee(args) {
@@ -91,11 +96,13 @@ function fetchTrainee(args) {
   console.log(trainee);
 }
 
+
 // get all
 function fetchAllTrainees() {
   const trainees = loadTraineeData();
   console.log(trainees);
 }
+
 
 // handel
 export function handleTraineeCommand(subcommand, args) {
